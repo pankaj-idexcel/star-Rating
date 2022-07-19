@@ -12,20 +12,21 @@ const StarRating = ({ numberOfStars }) => {
 
   // console.log("stars", stars);
 
-  const handleStar = (star) => {
-    setStars(star);
+  const handleStar = (starNumber) => {
+    setStars(prev=> prev=starNumber);
   };
 
-  // console.log("updated-stars", stars);
+  console.log("stars", stars);
   // console.log("render");
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        {arr.map((item) => (
-          <div key={item} style={{ margin: "5px" }}>
+        {arr.map((item, index) => (
+          <div key={index+1} style={{ margin: "5px" }}>
             <div onClick={() => handleStar(item)}>
-              {stars <= item-1? <Star /> : <StarFill />}
+              {console.log(stars <= index ? "star": "starFill")}
+              {stars <= index ? <Star /> : <StarFill />}
             </div>
             <p style={{ display: "flex", justifyContent: "center" }}>{item}</p>
           </div>
