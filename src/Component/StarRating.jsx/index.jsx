@@ -20,22 +20,22 @@ const StarRating = ({ numberOfStars }) => {
 
   console.log("updated-stars", stars);
   return (
-    <div style={{display: "flex", flexDirection: "column" }}>
+    <div style={{display: "flex", flexDirection: "column"}}>
     <div style={{ display: "flex", justifyContent: "center"}}>
       {arr.map((x) => (
         <div key={x} style={{ margin: "5px" }}>
-          <div onClick={() => handleStar(x)}>
+          <div onClick={(e) => handleStar(x)}>
             {stars<=x-1 ?(
               <Star/>
             ): (
              <StarFill/>
             )}
           </div>
-          <div >{x}</div>
+          <p style={{display:"flex", justifyContent: "center"}} >{x}</p>
         </div>
       ))}
     </div>
-    <div>You have given {stars} stars </div>
+    <p style={{textAlign:"center"}}>You have given {stars} stars </p>
     </div>
   );
 };
