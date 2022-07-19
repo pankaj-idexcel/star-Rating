@@ -1,9 +1,8 @@
-import React, { useState, Fragment } from "react";
-import {ReactComponent as Star } from '../../Assets/star.svg'
-import {ReactComponent as StarFill } from '../../Assets/star-fill.svg'
+import React, { useState, memo } from "react";
+import { ReactComponent as Star } from "../../Assets/star.svg";
+import { ReactComponent as StarFill } from "../../Assets/star-fill.svg";
 
 const StarRating = ({ numberOfStars }) => {
-  
   const [stars, setStars] = useState(0);
 
   const arr = [];
@@ -11,32 +10,29 @@ const StarRating = ({ numberOfStars }) => {
     arr.push(i);
   }
 
- 
-  console.log("stars", stars);
+  // console.log("stars", stars);
 
   const handleStar = (star) => {
     setStars(star);
   };
 
-  console.log("updated-stars", stars);
+  // console.log("updated-stars", stars);
+  // console.log("render");
+
   return (
-    <div style={{display: "flex", flexDirection: "column"}}>
-    <div style={{ display: "flex", justifyContent: "center"}}>
-      {arr.map((x) => (
-        <div key={x} style={{ margin: "5px" }}>
-          <div onClick={(e) => handleStar(x)}>
-            {stars<=x-1 ?(
-              <Star/>
-            ): (
-             <StarFill/>
-            )}
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {arr.map((item) => (
+          <div key={item} style={{ margin: "5px" }}>
+            <div onClick={() => handleStar(item)}>
+              {stars <= item-1? <Star /> : <StarFill />}
+            </div>
+            <p style={{ display: "flex", justifyContent: "center" }}>{item}</p>
           </div>
-          <p style={{display:"flex", justifyContent: "center"}} >{x}</p>
-        </div>
-      ))}
-    </div>
-    <p style={{textAlign:"center"}}>You have given {stars} stars </p>
+        ))}
+      </div>
+      <p style={{ textAlign: "center" }}>You have given {stars} stars </p>
     </div>
   );
 };
-export default StarRating;
+export default memo(StarRating);
