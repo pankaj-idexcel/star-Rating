@@ -21,10 +21,9 @@ const StarRating = ({ numberOfStars }) => {
   console.log("updated-stars", stars);
   return (
     <div style={{display: "flex", flexDirection: "column" }}>
-    <div style={{ display: "flex", background: "grey", justifyContent: "center"}}>
+    <div style={{ display: "flex", justifyContent: "center"}}>
       {arr.map((x) => (
         <div key={x} style={{ margin: "5px" }}>
-        
           <div onClick={() => handleStar(x)}>
             {stars<=x-1 ?(
               <Star/>
