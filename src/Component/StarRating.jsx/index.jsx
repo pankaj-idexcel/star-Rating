@@ -1,6 +1,7 @@
 import React, { useState, memo } from "react";
 import { ReactComponent as Star } from "../../Assets/star.svg";
 import { ReactComponent as StarFill } from "../../Assets/star-fill.svg";
+import PropTypes from 'prop-types'
 
 const StarRating = ({ numberOfStars }) => {
   const [stars, setStars] = useState(0);
@@ -18,7 +19,7 @@ const StarRating = ({ numberOfStars }) => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      {/* {console.log("UI render")} */}
+      {console.log("UI render")}
       <div style={{ display: "flex", justifyContent: "center" }}>
         {arr.map((item, index) => (
           <div key={index+1} style={{ margin: "5px" }}>
@@ -35,4 +36,13 @@ const StarRating = ({ numberOfStars }) => {
     </div>
   );
 };
+
+StarRating.propTypes = {
+  numberOfStars: PropTypes.number
+}
+
+StarRating.defaultProps= {
+  numberOfStars : 0
+}
 export default memo(StarRating);
+
