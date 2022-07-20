@@ -10,14 +10,11 @@ const StarRating = ({ numberOfStars }) => {
     arr.push(i);
   }
 
-  // console.log("stars", stars);
-
   const handleStar = (starNumber) => {
     setStars(prev=> prev=starNumber);
   };
 
   console.log("stars", stars);
-  // console.log("render");
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>

@@ -2,7 +2,7 @@ import React, {memo} from 'react'
 import StarRating from "./Component/StarRating.jsx";
 
 function App() {
-  let numberOfStars = 5
+  const numberOfStars = 5; // how many number of stars user need
 
   return (
     <div className="App" style={{display: 'flex', flexDirection:"row", justifyContent:"center", alignItems:"center"}}>
