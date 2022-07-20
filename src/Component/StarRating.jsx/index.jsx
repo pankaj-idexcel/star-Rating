@@ -22,8 +22,8 @@ const StarRating = ({ numberOfStars }) => {
       {console.log("UI render")}
       <div style={{ display: "flex", justifyContent: "center" }}>
         {arr.map((item, index) => (
-          <div key={index+1} style={{ margin: "5px" }}>
-            <div onClick={() => handleStar(index+1)}> 
+          <div key={item} style={{ margin: "5px" }}>
+            <div onClick={() => handleStar(item)}> 
             {/*using svgr lib for svg files*/}
               {/* {console.log(stars <= index ? "star": "starFill")} */}
               {stars <= index ? <Star /> : <StarFill />} 
