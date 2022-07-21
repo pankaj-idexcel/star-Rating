@@ -7,14 +7,11 @@ const StarRating = ({ numberOfStars }) => {
   const [stars, setStars] = useState(0);
 
   const arr = [];
-
-  for (let i = 1; i <= numberOfStars; i++) {
-    arr.push(i);
-  }
+  arr.length = numberOfStars;
+  arr.fill()
 
   const handleStar = (starNumber) => {
       setStars(starNumber)
-      // console.log("handleStar render");
     }
 
   return (
@@ -22,13 +19,13 @@ const StarRating = ({ numberOfStars }) => {
       {console.log("UI render")}
       <div style={{ display: "flex", justifyContent: "center" }}>
         {arr.map((item, index) => (
-          <div key={item} style={{ margin: "5px" }}>
-            <div onClick={() => handleStar(item)}> 
+          <div key={index+1} style={{ margin: "5px" }}>
+            <div onClick={() => handleStar(index+1)}> 
             {/*using svgr lib for svg files*/}
               {/* {console.log(stars <= index ? "star": "starFill")} */}
               {stars <= index ? <Star /> : <StarFill />} 
             </div>
-            <p style={{ display: "flex", justifyContent: "center" }}>{item}</p>
+            <p style={{ display: "flex", justifyContent: "center" }}>{index+1}</p>
           </div>
         ))}
       </div>
